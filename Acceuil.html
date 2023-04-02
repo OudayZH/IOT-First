@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAvndWAASF/gBeXVwA4LSRAPb8/wCHg4oA+/f1AADM/wAaFxUA/v39ABGh+gAzzMwAZsz/AP7//wAzmf8A78OhAP///wCtUjMAM5mZAO3RugBmmcwA+/XxAP37+QD1x6YAzJlmAITD/gBFQj4AheD/AOjDpgDovpwA5/f/APLg0ADv2MUA+fHqAPjLqgDx+v8A/tCtALjo/gAzzP8AHMD7AACZ/wCZzP8A9efbAPft4wBKsusA68qwANmshwDJ7v8AzJmZANj1/wBmZmYAoeb/AGna/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQ4SLy8vBAQbAx4QGBgYEA4KAS8vLwQEGRAYGBgjGCUmKRIELy8vBAAAACUjIx0AETQGAQQEBAQAAAklIyMdABEOAgEuHR4EBBgQEBgYECMRBRMvICEuHR4eHh4QEBAQCi01EgcsICEuHR4QEBAQHgoCHBUZLCEhISEuLhgQEBApKTQcJygzLyIsKyAeIRQhCgIwNA0nCBIeLCsUEiArKw4qJDA0NScnJwwtNSkxEhkRFycfMDQcNTU1HDQPEQoWERcPCyQyMCYmJjQCJAoKERcLETApJiQFHzUCJAIkEREwEREREQoPGh8RERERLRERERERERERCwoREREREREREQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" rel="icon" type="image/x-icon" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" />
-    <title>Document</title>
+    <title>Acceuil</title>
 </head>
 
 <body>
@@ -66,7 +64,6 @@
 
     <script>
         
-        // Replace with your Firebase project configuration
         var firebaseConfig = {
             apiKey: "AIzaSyDx5chvzhHyyLSHAuIsQqAuR_xVP8KP95E",
             authDomain: "5jax8sTeAbBSgK60uwlYHcjx2igeobISNYLn92oS",
@@ -76,18 +73,14 @@
         };
 
 
-        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
-        // Get a reference to the Firebase database
         var database = firebase.database();
         var now = new Date();
 
-        // get the hours and minutes
         var hours = now.getHours();
         var minutes = now.getMinutes();
 
-        // add leading zeros to the hours and minutes if necessary
         if (hours < 10) {
             hours = '0' + hours;
         }
@@ -95,25 +88,21 @@
             minutes = '0' + minutes;
         }
 
-        // format the time as hh:mm
         var time = hours + ':' + minutes;
 
 
         document.getElementById('horloge').innerHTML = time;
 
 
-        // Get a reference to the temperature and humidity values in Firebase
         var tempRef = database.ref('temperature');
         var humidityRef = database.ref('humidity');
 
-        // Listen for changes in the temperature value and update the webpage
         tempRef.on('value', function (snapshot) {
             var temperature = snapshot.val() + "°C";
 
             document.getElementById('tempValue').innerHTML = temperature;
         });
 
-        // Listen for changes in the humidity value and update the webpage
         humidityRef.on('value', function (snapshot) {
             var humidity = snapshot.val() + "%";
             document.getElementById('humidityValue').innerHTML = humidity;
