@@ -4,23 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAvndWAASF/gBeXVwA4LSRAPb8/wCHg4oA+/f1AADM/wAaFxUA/v39ABGh+gAzzMwAZsz/AP7//wAzmf8A78OhAP///wCtUjMAM5mZAO3RugBmmcwA+/XxAP37+QD1x6YAzJlmAITD/gBFQj4AheD/AOjDpgDovpwA5/f/APLg0ADv2MUA+fHqAPjLqgDx+v8A/tCtALjo/gAzzP8AHMD7AACZ/wCZzP8A9efbAPft4wBKsusA68qwANmshwDJ7v8AzJmZANj1/wBmZmYAoeb/AGna/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQ4SLy8vBAQbAx4QGBgYEA4KAS8vLwQEGRAYGBgjGCUmKRIELy8vBAAAACUjIx0AETQGAQQEBAQAAAklIyMdABEOAgEuHR4EBBgQEBgYECMRBRMvICEuHR4eHh4QEBAQCi01EgcsICEuHR4QEBAQHgoCHBUZLCEhISEuLhgQEBApKTQcJygzLyIsKyAeIRQhCgIwNA0nCBIeLCsUEiArKw4qJDA0NScnJwwtNSkxEhkRFycfMDQcNTU1HDQPEQoWERcPCyQyMCYmJjQCJAoKERcLETApJiQFHzUCJAIkEREwEREREQoPGh8RERERLRERERERERERCwoREREREREREQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" rel="icon" type="image/x-icon" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Font Awesome -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-<!-- 
-     Fonts -->
-<!-- MDB -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" />
-
-<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
-
-<!-- Add Firebase Authentication to your web page -->
 <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
 
 <script>
-  // Initialize Firebase
   var firebaseConfig = {
       apiKey: "AIzaSyDx5chvzhHyyLSHAuIsQqAuR_xVP8KP95E",
           authDomain: "5jax8sTeAbBSgK60uwlYHcjx2igeobISNYLn92oS",
@@ -29,10 +21,8 @@
   };
   firebase.initializeApp(firebaseConfig);
 </script>
-    <title>Document</title>
-    <style>/* Importing fonts from Google */
-        
-        /* Reseting */
+    <title>Login</title>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -167,11 +157,9 @@
     
           firebase.auth().signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
-              // User signed in successfully, redirect to sensor values page
               window.location.href = 'Acceuil.html';
             })
             .catch((error) => {
-              // Handle login error here (e.g. display error message to user)
               console.log(error.message);
             });
         });
